@@ -1,10 +1,11 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 
 const Login = () => {
   const { login, signinwithgoogle } = useContext(AuthContext);
+  const [success,setsuccess] = useState(false)
   const emailRef = useRef(null);
   const navigate = useNavigate();
 
@@ -14,11 +15,15 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    setsuccess(false)
 
     login(email, password)
       .then((res) => {
         console.log(res.user);
+        setsuccess(true)
+        navigate('/')
         console.log("login success fully");
+
       })
       .catch((error) => {
         console.log(error.message);

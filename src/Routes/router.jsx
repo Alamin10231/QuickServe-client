@@ -4,6 +4,10 @@ import NotFound from "../components/NotFound";
 import MainLayout from "../pages/MainLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Services from "../pages/Services";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../pages/Dashboard";
+import Home from "../pages/Home";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -12,7 +16,7 @@ const router = createBrowserRouter([
     children:[
       {
       path:"/",
-      element:<h1>home</h1>
+      element:<Home></Home>
       },
       {
       path:"/login",
@@ -21,6 +25,14 @@ const router = createBrowserRouter([
       {
       path:"/register",
       element:<Register></Register>
+      },
+      {
+      path:"/services",
+      element:<PrivateRoute><Services></Services></PrivateRoute>
+      },
+      {
+      path:"/dashboard",
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
       },
 
     ]
