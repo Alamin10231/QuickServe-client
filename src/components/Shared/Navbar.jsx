@@ -6,7 +6,7 @@ const Navbar = () => {
   const { user, signout } = useContext(AuthContext);
   const links = (
     <>
-      <NavLink
+      <Link
         to="/"
         className={({ isActive }) =>
           isActive
@@ -15,7 +15,7 @@ const Navbar = () => {
         }
       >
         <li className="px-4 py-2">Home </li>
-      </NavLink>
+      </Link>
       <NavLink
         to="/services"
         className={({ isActive }) =>
@@ -70,16 +70,18 @@ const Navbar = () => {
                     : "text-gray-700 hover:text-green-600 transition-colors duration-300"
                 }
               >
-                <li>
-                <summary>Dashboard</summary>
-                  <ul className="p-2 cursor-pointer">
-                    <li>Add Service</li>
-                    <li>Manage Service</li>
-                    <li>Booked-Services</li>
-                    <li>Service-To-Do</li>
-                  </ul>
-                </li>
+                <li>Dashboard</li>
               </NavLink>
+
+              <ul className="p-2 cursor-pointer">
+                <NavLink to="/dashboard/addservices">
+                  <li>Add Service</li>
+                </NavLink>
+
+                <li>Manage Service</li>
+                <li>Booked Services</li>
+                <li>Service To-Do</li>
+              </ul>
             </ul>
           </div>
           <NavLink
@@ -107,7 +109,9 @@ const Navbar = () => {
               <details>
                 <summary>Dashboard</summary>
                 <ul className="p-2 cursor-pointer ">
-                  <li>Add Service</li>
+                  <Link to="/dashboard/addservices">
+                    <li>Add Service</li>
+                  </Link>
                   <li>Manage Service</li>
                   <li>Booked-Services</li>
                   <li>Service-To-Do</li>
@@ -177,9 +181,7 @@ const Navbar = () => {
                   <li>
                     <a className="justify-between">Profile</a>
                   </li>
-                  <li>
-                    Update Profile
-                  </li>
+                  <li>Update Profile</li>
                   <li>
                     <button onClick={handleSignOut}>log out</button>
                   </li>

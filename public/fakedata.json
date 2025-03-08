@@ -1,0 +1,110 @@
+[
+                    {
+                      "_id": "662a1d2f9c9b6a2345678911",
+                      "serviceName": "Home Electrical Repair",
+                      "category": "Home Services",
+                      "description": "Expert wiring, fixture installation, and circuit troubleshooting",
+                      "price": 120,
+                      "serviceArea": "Dhaka",
+                      "provider": {
+                        "name": "John Electrotech",
+                        "email": "john@electroservice.com",
+                        "image": "https://randomuser.me/api/portraits/men/75.jpg"
+                      },
+                      "serviceImage": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a",
+                      "availability": "Immediate",
+                      "ratings": 4.8,
+                      "bookings": 45,
+                      "status": "active"
+                    },
+                    {
+                      "_id": "662a1d2f9c9b6a2345678912",
+                      "serviceName": "Deep Cleaning Service",
+                      "category": "Cleaning",
+                      "description": "Professional cleaning for apartments and offices",
+                      "price": 60,
+                      "serviceArea": "Sylhet",
+                      "provider": {
+                        "name": "CleanPro Team",
+                        "email": "contact@cleanpro.com",
+                        "image": "https://randomuser.me/api/portraits/women/32.jpg"
+                      },
+                      "serviceImage": "https://images.unsplash.com/photo-1565538810643-b5bdb714032a",
+                      "availability": "Next Day",
+                      "ratings": 4.9,
+                      "bookings": 89,
+                      "status": "active"
+                    },
+                    {
+                      "_id": "662a1d2f9c9b6a2345678913",
+                      "serviceName": "Bridal Makeup Package",
+                      "category": "Beauty",
+                      "description": "Complete bridal makeup with premium products",
+                      "price": 150,
+                      "serviceArea": "Khulna",
+                      "provider": {
+                        "name": "Zara Beautique",
+                        "email": "zara@glamourstudio.com",
+                        "image": "https://randomuser.me/api/portraits/women/67.jpg"
+                      },
+                      "serviceImage": "https://images.unsplash.com/photo-1587270613291-b5c7042fc104",
+                      "availability": "Advance Booking",
+                      "ratings": 4.7,
+                      "bookings": 32,
+                      "status": "active"
+                    },
+                    {
+                      "_id": "662a1d2f9c9b6a2345678914",
+                      "serviceName": "Legal Consultation",
+                      "category": "Professional Services",
+                      "description": "Property and family law advice",
+                      "price": 200,
+                      "serviceArea": "Chattogram",
+                      "provider": {
+                        "name": "LawShield Associates",
+                        "email": "contact@lawshield.com",
+                        "image": "https://randomuser.me/api/portraits/men/82.jpg"
+                      },
+                      "serviceImage": "https://images.unsplash.com/photo-1587271339318-2e78fdf79586",
+                      "availability": "By Appointment",
+                      "ratings": 4.6,
+                      "bookings": 27,
+                      "status": "active"
+                    },
+                    {
+                      "_id": "662a1d2f9c9b6a2345678915",
+                      "serviceName": "AC Maintenance",
+                      "category": "Home Services",
+                      "description": "Gas refill and preventive maintenance",
+                      "price": 80,
+                      "serviceArea": "Dhaka",
+                      "provider": {
+                        "name": "CoolTech Solutions",
+                        "email": "service@cooltech.com",
+                        "image": "https://randomuser.me/api/portraits/men/25.jpg"
+                      },
+                      "serviceImage": "https://images.unsplash.com/photo-1596075780750-81249df16d19",
+                      "availability": "Same Day",
+                      "ratings": 4.5,
+                      "bookings": 63,
+                      "status": "active"
+                    },
+                    {
+                      "_id": "662a1d2f9c9b6a2345678916",
+                      "serviceName": "Plumbing Emergency",
+                      "category": "Home Services",
+                      "description": "24/7 pipe leaks and drainage solutions",
+                      "price": 90,
+                      "serviceArea": "Comilla",
+                      "provider": {
+                        "name": "AquaFix Professionals",
+                        "email": "support@aquafix.com",
+                        "image": "https://randomuser.me/api/portraits/women/45.jpg"
+                      },
+                      "serviceImage": "https://images.unsplash.com/photo-1598928636135-d146006ff4be",
+                      "availability": "24/7",
+                      "ratings": 4.8,
+                      "bookings": 102,
+                      "status": "active"
+                    }
+]

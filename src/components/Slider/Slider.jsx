@@ -6,7 +6,7 @@ import forest from "../../assets/slider3.jpg"; // Fixed typo from 'forst' to 'fo
 const Slider = () => {
   return (
     <div className="w-10/12 mx-auto py-10">
-      <div className="carousel rounded-box h-[700px] relative">
+      <div className="carousel rounded-box h-[600px] relative ">
         {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
           <img 

@@ -19,6 +19,7 @@ const Register = () => {
     register(email, password)
       .then((res) => {
         console.log(res.user);
+        navigate("/");
         console.log("register success fully");
       })
       .catch((error) => {
