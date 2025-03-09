@@ -13,6 +13,8 @@ import ShowAll from "../components/ShowAll";
 import ViewDetails from "../components/ViewDetails";
 import AddServices from "../pages/AddServices";
 import Main from "../pages/Main";
+import Booking from "../components/Booking";
+import Table from "../components/Table";
 
 const router = createBrowserRouter([
   {
@@ -51,10 +53,30 @@ const router = createBrowserRouter([
             <ViewDetails></ViewDetails>
           </PrivateRoute>
         ),
-      loader: ({params}) =>
-        fetch(`http://localhost:5000/viewdetails/${params.id}`)
-
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/viewdetails/${params.id}`),
       },
+      {
+        path: "/booking/:id",
+        element: (
+          <PrivateRoute>
+            <Booking></Booking>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/viewdetails/${params.id}`),
+      },
+      {
+        path: "/bookings",
+        element: (
+          <PrivateRoute>
+            <Table></Table>
+          </PrivateRoute>
+        ),
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/bookings/${params.id}`),
+      },
+
       {
         path: "/services",
         element: (
@@ -65,19 +87,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: 
+        element: (
           <PrivateRoute>
             <Dashboard></Dashboard>
           </PrivateRoute>
-        ,
-        children:[
+        ),
+        children: [
           {
             path: "addservices",
-            element:<AddServices></AddServices>
+            element: <AddServices></AddServices>,
           },
-        ]
+        ],
       },
-      
     ],
   },
 ]);

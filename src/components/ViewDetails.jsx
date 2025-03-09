@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const ViewDetails = () => {
   const service = useLoaderData();
-
+  const { id } = useParams();
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -72,9 +72,11 @@ const ViewDetails = () => {
                     Fixed Price
                   </span>
                 </div>
-                <button className="w-full mt-6 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                  Book Now
-                </button>
+                <Link to={`/booking/${id}`}>
+                  <button className="w-full mt-6 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                    Book Now
+                  </button>
+                </Link>
               </div>
 
               {/* Provider Card */}
