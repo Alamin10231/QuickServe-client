@@ -15,6 +15,7 @@ import AddServices from "../pages/AddServices";
 import Main from "../pages/Main";
 import Booking from "../components/Booking";
 import Table from "../components/Table";
+import ManageService from "../pages/ManageService";
 
 const router = createBrowserRouter([
   {
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
           {
             path: "addservices",
             element: <AddServices></AddServices>,
+          },
+          {
+            path: "manageservice",
+            element: <ManageService></ManageService>,
           },
         ],
       },

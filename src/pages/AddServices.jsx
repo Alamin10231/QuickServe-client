@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const AddServices = () => {
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handlesubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,14 +17,14 @@ const AddServices = () => {
     const provider = {
       name: user?.displayName,
       email: user?.email,
-      image: user?.photoURL ,
+      image: user?.photoURL,
     };
 
     const alldata = {
-       serviceImage,
-       serviceName,
+      serviceImage,
+      serviceName,
       price,
-       serviceArea,
+      serviceArea,
       description,
       provider,
     };
@@ -41,7 +41,7 @@ const AddServices = () => {
           alert("Service added successfully!");
 
           form.reset();
-          navigate('/showall')
+          navigate("/services");
         }
       })
       .catch((error) => console.error("Error:", error));

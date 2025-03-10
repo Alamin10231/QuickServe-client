@@ -104,7 +104,7 @@ const Minimain = ({ service }) => {
       {serviceArea}
     </span> */}
   </div>
-  <Link to="showall" className="flex-1 sm:flex-none">
+  <Link to="/services" className="flex-1 sm:flex-none">
     <button className="h-12 bg-gray-200 text-gray-700 px-6 py-2 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-all w-full sm:w-auto">
       Show All
     </button>

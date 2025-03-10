@@ -112,7 +112,10 @@ const Navbar = () => {
                   <Link to="/dashboard/addservices">
                     <li>Add Service</li>
                   </Link>
-                  <li>Manage Service</li>
+                  <Link to="/dashboard/manageservice">
+                    <li>Manage Service</li>
+                  </Link>
+
                   <li>Booked-Services</li>
                   <li>Service-To-Do</li>
                 </ul>
