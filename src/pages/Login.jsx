@@ -2,8 +2,11 @@ import React, { useContext, useRef, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
+import UseTitle from "../components/UseTitle";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  UseTitle("Login")
   const { login, signinwithgoogle } = useContext(AuthContext);
   const [success,setsuccess] = useState(false)
   const emailRef = useRef(null);
@@ -21,13 +24,26 @@ const Login = () => {
       .then((res) => {
         console.log(res.user);
         setsuccess(true)
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login Successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
         navigate('/')
-        console.log("login success fully");
+     
 
       })
       .catch((error) => {
         console.log(error.message);
-        console.log("error success fully");
+          Swal.error({
+                  position: "center",
+                  icon: "error",
+                  title: {error},
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
       });
     //signin with google
     
@@ -37,13 +53,25 @@ const Login = () => {
                       .then((result) => {
                         console.log(result.user);
                     //     toast.success("Successfully login");
-              
+                    Swal.fire({
+                      position: "center",
+                      icon: "success",
+                      title: "Successfully login",
+                      showConfirmButton: false,
+                      timer: 1500
+                    });
                         navigate("/");
                       })
               
                       .catch((error) => {
                         console.log(error.message);
-                    //     toast.error("Please Try again");
+                        Swal.error({
+                          position: "center",
+                          icon: "error",
+                          title: "Please Try Again",
+                          showConfirmButton: false,
+                          timer: 1500,
+                        });
                       });
                   };
 

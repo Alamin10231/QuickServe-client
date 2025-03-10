@@ -2,9 +2,12 @@ import React, { useContext, useRef } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
+import UseTitle from "../components/UseTitle";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  const { register,signinwithgoogle } = useContext(AuthContext);
+  UseTitle("Register");
+  const { register, signinwithgoogle } = useContext(AuthContext);
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const navigate = useNavigate();
@@ -19,8 +22,14 @@ const Register = () => {
     register(email, password)
       .then((res) => {
         console.log(res.user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Register Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate("/");
-        console.log("register success fully");
       })
       .catch((error) => {
         console.log(error.message);
@@ -31,14 +40,28 @@ const Register = () => {
     signinwithgoogle()
       .then((result) => {
         console.log(result.user);
-//         toast.success("Successfully login");
+
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Register Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
 
         navigate("/");
       })
 
       .catch((error) => {
         console.log(error.message);
-//         toast.error("Please Try again");
+        Swal.error({
+          position: "center",
+          icon: "error",
+          title: "Please Try Again",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        //         toast.error("Please Try again");
       });
   };
 
@@ -124,7 +147,10 @@ const Register = () => {
           </button>
         </form>
         <div className="mt-6 flex items-center justify-center">
-          <button onClick={handlegoogle} className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition duration-200">
+          <button
+            onClick={handlegoogle}
+            className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition duration-200"
+          >
             <FcGoogle size={24} />
             <span>Sign up with Google</span>
           </button>

@@ -16,6 +16,7 @@ import Main from "../pages/Main";
 import Booking from "../components/Booking";
 import Table from "../components/Table";
 import ManageService from "../pages/ManageService";
+import UpdatePage from "../pages/UpdatePage";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/update/:id",
+        element: <UpdatePage></UpdatePage>,
+      },
+      {
         path: "/dashboard",
         element: (
           <PrivateRoute>
@@ -102,7 +107,9 @@ const router = createBrowserRouter([
             path: "manageservice",
             element: <ManageService></ManageService>,
           },
+         
         ],
+       
       },
     ],
   },

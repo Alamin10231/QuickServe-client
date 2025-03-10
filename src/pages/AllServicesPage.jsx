@@ -1,14 +1,7 @@
-// import React, { useState } from "react";
+import React from "react";
 
-// const AllServicesPage = () => {
-//   const [AllProduct, setAllProduct] = useState([]);
-//   useEffect(() => {
-//     fetch("http://localhost:5000/")
-//       .then((res) => res.json())
-//       .then((data) => setAllProduct(data))
-//       .catch((error) => console.error("Fetch error:", error));
-//   }, []);
-//   return <div>product:{AllProduct.length}</div>;
-// };
+const AllServicesPage = () => {
+  return <div></div>;
+};
 
-// export default AllServicesPage;
+export default AllServicesPage;

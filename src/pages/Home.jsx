@@ -5,8 +5,10 @@ import PopularServices from "../components/PopularServices";
 import Main from "./Main";
 import TopServiceProvider from "../components/ExtraSection/TopServiceProvider";
 import Trending from "../components/ExtraSection/Trending";
+import UseTitle from "../components/UseTitle";
 
 const Home = () => {
+  UseTitle("Home");
   return (
     <div>
       <Slider></Slider>
