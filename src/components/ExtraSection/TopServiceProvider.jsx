@@ -8,7 +8,7 @@ const TopServiceProvider = () => {
     <div>
       <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-700">
             Top Service Providers
           </h2>
 
@@ -23,16 +23,16 @@ const TopServiceProvider = () => {
                   alt="Provider"
                 />
                 <div className="ml-4">
-                  <h3 className="text-xl font-bold">Ahmed Hasan</h3>
+                  <h3 className="text-xl font-bold text-gray-700">Ahmed Hasan</h3>
                   <p className="text-blue-600">Electrician</p>
-                  <div className="flex items-center mt-1 justify-center">
+                  <div className="flex items-center mt-1 justify-center text-gray-700">
                     ⭐ 4.9 (120+ Reviews)
                   </div>
                 </div>
               </div>
               <div className="bg-gray-100 p-4 rounded-lg text-center">
-                <p className="text-sm">✅ 500+ Services Completed</p>
-                <p className="text-sm">📍 Mirpur, Dhaka</p>
+                <p className="text-sm text-gray-700">✅ 500+ Services Completed</p>
+                <p className="text-sm text-gray-700">📍 Mirpur, Dhaka</p>
               </div>
               <button className="mt-4 w-full max-w-[200px] mx-auto bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
                 Contact Now
@@ -43,20 +43,20 @@ const TopServiceProvider = () => {
               <div className="flex flex-col items-center mb-4">
                 <img
                   src={SalekPathan}
-                  className="w-20 h-20 rounded-full border-4 border-blue-200 mb-4 object-cover"
+                  className="w-20 h-20 rounded-full border-4 border-blue-200  mb-4 object-cover"
                   alt="Provider"
                 />
                 <div className="ml-4">
-                  <h3 className="text-xl font-bold">Salek Pathan</h3>
+                  <h3 className="text-xl font-bold text-gray-700">Salek Pathan</h3>
                   <p className="text-blue-600">Plumber</p>
-                  <div className="flex items-center mt-1 justify-center">
+                  <div className="flex items-center mt-1 justify-center text-gray-700">
                     ⭐ 4.7 (98+ Reviews)
                   </div>
                 </div>
               </div>
               <div className="bg-gray-100 p-4 rounded-lg text-center">
-                <p className="text-sm">✅ 350+ Services Completed</p>
-                <p className="text-sm">📍 Banani, Dhaka</p>
+                <p className="text-sm text-gray-700">✅ 350+ Services Completed</p>
+                <p className="text-sm text-gray-700">📍 Banani, Dhaka</p>
               </div>
               <button className="mt-4 w-full max-w-[200px] mx-auto bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
                 Contact Now
@@ -72,16 +72,16 @@ const TopServiceProvider = () => {
                   alt="Provider"
                 />
                 <div className="ml-4">
-                  <h3 className="text-xl font-bold">Sumaiya Akter</h3>
+                  <h3 className="text-xl font-bold text-gray-700">Sumaiya Akter</h3>
                   <p className="text-blue-600">Interior Designer</p>
-                  <div className="flex items-center mt-1 justify-center">
+                  <div className="flex items-center mt-1 justify-center text-gray-700">
                     ⭐ 4.8 (110+ Reviews)
                   </div>
                 </div>
               </div>
               <div className="bg-gray-100 p-4 rounded-lg text-center">
-                <p className="text-sm">✅ 400+ Services Completed</p>
-                <p className="text-sm">📍 Gulshan, Dhaka</p>
+                <p className="text-sm text-gray-700">✅ 400+ Services Completed</p>
+                <p className="text-sm text-gray-700">📍 Gulshan, Dhaka</p>
               </div>
               <button className="mt-4 w-full max-w-[200px] mx-auto bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
                 Contact Now

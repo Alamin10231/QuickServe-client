@@ -6,7 +6,7 @@ const Trending = () => {
     <div>
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">Trending Now</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-700">Trending Now</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Trending Service 1 */}
