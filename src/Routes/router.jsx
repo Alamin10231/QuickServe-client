@@ -56,7 +56,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/viewdetails/${params.id}`),
+          fetch(
+            `https://quick-serve-server.vercel.app/viewdetails/${params.id}`
+          ),
       },
       {
         path: "/booking/:id",
@@ -66,7 +68,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/viewdetails/${params.id}`),
+          fetch(
+            `https://quick-serve-server.vercel.app/viewdetails/${params.id}`
+          ),
       },
       {
         path: "/bookings",
@@ -76,7 +80,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/bookings/${params.id}`),
+        //   fetch(`https://quick-serve-server.vercel.app/bookings/${params.id}`),
       },
 
       {
@@ -107,9 +111,7 @@ const router = createBrowserRouter([
             path: "manageservice",
             element: <ManageService></ManageService>,
           },
-         
         ],
-       
       },
     ],
   },

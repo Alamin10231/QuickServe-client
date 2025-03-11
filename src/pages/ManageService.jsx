@@ -4,16 +4,19 @@ import { motion } from "framer-motion";
 import { TrashIcon, PencilIcon } from "@heroicons/react/24/solid";
 import UseTitle from "../components/UseTitle";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const ManageService = () => {
-  UseTitle("Manage Service")
+  UseTitle("Manage Service");
   const [manager, setManage] = useState([]);
-  const { _id } = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:5000")
-      .then((res) => res.json())
-      .then((data) => setManage(data));
+    // fetch("https://quick-serve-server.vercel.app")
+    //   .then((res) => res.json())
+    axios
+      .get("https://quick-serve-server.vercel.app")
+
+      .then((res) => setManage(res.data));
   }, []);
 
   const handledelete = (id) => {
@@ -24,22 +27,23 @@ const ManageService = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/manage/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
+        axios
+          .delete(`https://quick-serve-server.vercel.app/manage/${id}`)
+
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your service has been deleted.",
-                icon: "success"
+                icon: "success",
               });
-  
-              const updatedManager = manager.filter(service => service._id !== id);
+
+              const updatedManager = manager.filter(
+                (service) => service._id !== id
+              );
               setManage(updatedManager);
             }
           });
@@ -52,13 +56,13 @@ const ManageService = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+      transition: { staggerChildren: 0.1 },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -117,7 +121,7 @@ const ManageService = () => {
                     <TrashIcon className="h-5 w-5" />
                     Delete
                   </button>
-                  
+
                   <Link
                     to={`/update/${p._id}`}
                     className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200"

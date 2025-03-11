@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "./Firebase";
+import axios from "axios";
 // import { GoogleAuthProvider } from "firebase/auth";
 export const AuthContext = createContext();
 
@@ -28,14 +29,14 @@ const AuthProvider = ({ children }) => {
     setloading(true);
     return signOut(auth)
       .then(() => {
-        setuser(null); 
+        setuser(null);
         setloading(false);
       })
       .catch((error) => {
         setloading(false);
         throw error;
       });
-  }
+  };
   const signinwithgoogle = () => {
     setloading(true);
     const Provider = new GoogleAuthProvider();
@@ -55,6 +56,25 @@ const AuthProvider = ({ children }) => {
     const UnsubScribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
       setuser(currentUser);
+      console.log("user login", currentUser?.email);
+      if (currentUser?.email) {
+        const user = { email: currentUser.email };
+        axios
+          .post(`https://quick-serve-server.vercel.app/jwt`, user, {
+            withCredentials: true,
+          })
+          .then((res) => console.log(res.data));
+      } else {
+        axios
+          .post(
+            `https://quick-serve-server.vercel.app/logout`,
+            {},
+            {
+              withCredentials: true,
+            }
+          )
+          .then((res) => console.log("logout:", res.data));
+      }
       setloading(false);
       return () => UnsubScribe();
     });

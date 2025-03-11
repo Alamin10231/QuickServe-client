@@ -5,10 +5,10 @@ const PopularServices = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/')
-      .then(res => res.json())
-      .then(data => setProducts(data))
-      .catch(error => console.error('Fetch error:', error));
+    fetch("https://quick-serve-server.vercel.app/")
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Fetch error:", error));
   }, []);
 
   return (
@@ -16,10 +16,10 @@ const PopularServices = () => {
       <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
         Popular Services
       </h2>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map(p => (
-          <PopularService 
+        {products.map((p) => (
+          <PopularService
             key={p._id} // Use MongoDB _id instead of index
             p={p}
           />

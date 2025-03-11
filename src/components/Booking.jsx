@@ -4,9 +4,7 @@ import { AuthContext } from "../Auth/AuthProvider";
 import { motion } from "framer-motion";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
-
 const Booking = () => {
-  
   const service = useLoaderData();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -18,7 +16,7 @@ const Booking = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
-    
+
     const formData = new FormData(e.target);
     const bookingData = {
       serviceId: service._id,
@@ -35,11 +33,14 @@ const Booking = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/bookings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bookingData),
-      });
+      const response = await fetch(
+        "https://quick-serve-server.vercel.app/bookings",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(bookingData),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -47,7 +48,10 @@ const Booking = () => {
       }
 
       setSuccess(true);
-      setTimeout(() => navigate("/bookings", { state: { success: true } }), 1500);
+      setTimeout(
+        () => navigate("/bookings", { state: { success: true } }),
+        1500
+      );
     } catch (err) {
       setError(err.message);
     } finally {

@@ -26,7 +26,9 @@ const UpdatePage = () => {
   useEffect(() => {
     const fetchService = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/services/${id}`);
+        const response = await fetch(
+          `https://quick-serve-server.vercel.app/services/${id}`
+        );
         if (!response.ok) throw new Error("Failed to fetch service");
         const data = await response.json();
         setServiceData(data);
@@ -60,11 +62,14 @@ const UpdatePage = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:5000/services/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedData),
-      });
+      const response = await fetch(
+        `https://quick-serve-server.vercel.app/services/${id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedData),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();

@@ -23,7 +23,7 @@ const PopularService = ({ p }) => {
         src={serviceImage}
         alt={title}
         className="w-full h-48 object-cover rounded-t-lg"
-        onError={(e) => (e.target.src = "https://via.placeholder.com/300")}
+        // onError={(e) => (e.target.src = "https://via.placeholder.com/300")}
       />
 
       {/* Content Section */}

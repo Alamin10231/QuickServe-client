@@ -4,13 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import UseTitle from "../components/UseTitle";
-
+import axios from "axios";
+import Swal from "sweetalert2";
 const AddServices = () => {
-  UseTitle("Add Service")
+  UseTitle("Add Service");
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+
+  // Import axios
 
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -30,32 +33,30 @@ const AddServices = () => {
       },
     };
 
-    fetch("http://localhost:5000/addservices", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(serviceData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-       
+    // Use axios instead of fetch
+    axios
+      .post("https://quick-serve-server.vercel.app/addservices", serviceData, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true, // Include this if you're using authentication (cookies/JWT)
+      })
+      .then((res) => {
+        if (res.data.insertedId) {
           setShowSuccess(true);
           form.reset();
           setTimeout(() => {
             Swal.fire({
-                      position: "center",
-                      icon: "success",
-                      title: "Added Service ",
-                      showConfirmButton: false,
-                      timer: 1500
-                    });
+              position: "center",
+              icon: "success",
+              title: "Added Service",
+              showConfirmButton: false,
+              timer: 1500,
+            });
             navigate("/services");
             setShowSuccess(false);
           }, 1500);
         }
       })
       .catch((error) => console.error("Error:", error))
-      
       .finally(() => setIsSubmitting(false));
   };
 
@@ -76,7 +77,9 @@ const AddServices = () => {
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
               Add New Service
             </h1>
-            <p className="text-gray-600">Fill in the details of your new service</p>
+            <p className="text-gray-600">
+              Fill in the details of your new service
+            </p>
           </div>
 
           <form onSubmit={handlesubmit} className="space-y-6">

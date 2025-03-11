@@ -6,7 +6,7 @@ const Table = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/bookings")
+    fetch("https://quick-serve-server.vercel.app/bookings")
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);
@@ -23,11 +23,21 @@ const Table = () => {
       <table className="w-full border border-gray-300 dark:border-gray-700 ">
         <thead>
           <tr className="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-200">
-            <th className="border border-gray-300 dark:border-gray-700 p-3">Booking ID</th>
-            <th className="border border-gray-300 dark:border-gray-700 p-3">Service Name</th>
-            <th className="border border-gray-300 dark:border-gray-700 p-3">Price</th>
-            <th className="border border-gray-300 dark:border-gray-700 p-3">Service Date</th>
-            <th className="border border-gray-300 dark:border-gray-700 p-3">Status</th>
+            <th className="border border-gray-300 dark:border-gray-700 p-3">
+              Booking ID
+            </th>
+            <th className="border border-gray-300 dark:border-gray-700 p-3">
+              Service Name
+            </th>
+            <th className="border border-gray-300 dark:border-gray-700 p-3">
+              Price
+            </th>
+            <th className="border border-gray-300 dark:border-gray-700 p-3">
+              Service Date
+            </th>
+            <th className="border border-gray-300 dark:border-gray-700 p-3">
+              Status
+            </th>
           </tr>
         </thead>
         <tbody className="">
@@ -40,7 +50,9 @@ const Table = () => {
                 <td className="border border-gray-300 dark:border-gray-700 p-3">
                   {booking._id.slice(-6).toUpperCase()}
                 </td>
-                <td className="border border-gray-300 dark:border-gray-700 p-3">{booking.serviceName}</td>
+                <td className="border border-gray-300 dark:border-gray-700 p-3">
+                  {booking.serviceName}
+                </td>
                 <td className="border border-gray-300 dark:border-gray-700 p-3 text-blue-600 dark:text-blue-400">
                   ${booking.price}
                 </td>
@@ -62,7 +74,10 @@ const Table = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="5" className="text-center p-6 text-gray-500 dark:text-gray-400">
+              <td
+                colSpan="5"
+                className="text-center p-6 text-gray-500 dark:text-gray-400"
+              >
                 No bookings found.
               </td>
             </tr>

@@ -5,19 +5,21 @@ import UseTitle from "../components/UseTitle";
 const Services = () => {
   UseTitle("Services");
   const [products, setProducts] = useState([]);
-  const [query,setquery] = useState("")
-  
+  const [query, setquery] = useState("");
+
   useEffect(() => {
-    fetch("http://localhost:5000/")
+    fetch("https://quick-serve-server.vercel.app/")
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Fetch error:", error));
   }, []);
-  const filterdata = products.filter(card=>card.serviceName.toLowerCase().includes(query.toLowerCase()))
+  const filterdata = products.filter((card) =>
+    card.serviceName.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-        <div className="my-20 text-center animate__animated animate__fadeInDown">
+      <div className="my-20 text-center animate__animated animate__fadeInDown">
         <input
           type="text"
           placeholder="Search for a movie..."
@@ -36,8 +38,6 @@ const Services = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-         
           {filterdata.map((p) => (
             <PopularService key={p._id} p={p} />
           ))}
